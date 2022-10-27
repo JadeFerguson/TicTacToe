@@ -13,9 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttonTen = findViewById<Button>(R.id.button)
-        buttonTen.setOnClickListener {
-            ticTacToeClick(buttonTen)
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener {
+            ticTacToeClick(button)
         }
 
         val buttonOne = findViewById<Button>(R.id.button10)
@@ -58,12 +58,21 @@ class MainActivity : AppCompatActivity() {
             ticTacToeClick(buttonEight)
         }
 
-        val buttonNine = findViewById<Button>(R.id.button18)
-        buttonNine.setOnClickListener {
-            ticTacToeClick(buttonNine)
+        val newGameButton = findViewById<Button>(R.id.button18)
+        newGameButton.setOnClickListener {
+            newGame(button)
+            newGame(buttonOne)
+            newGame(buttonTwo)
+            newGame(buttonThree)
+            newGame(buttonFour)
+            newGame(buttonFive)
+            newGame(buttonSix)
+            newGame(buttonSeven)
+            newGame(buttonEight)
+            player="playerOne"
         }
     }
-    fun ticTacToeClick(button:Button){
+    private fun ticTacToeClick(button:Button){
         if (button.text=="") {
             if (player=="playerOne") {
                 button.text = "X"
@@ -78,13 +87,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun playerTurn(){
+    private fun playerTurn(){
         val whichPlayer = findViewById<TextView>(R.id.playerWin)
         if (player == "playerOne") {
             whichPlayer.text = "Player One's Turn"
         }
-        else {
+        if (player == "playerTwo"){
             whichPlayer.text = "Player Two's Turn"
         }
+    }
+
+    private fun newGame(button:Button){
+        val resetPlayer = findViewById<TextView>(R.id.playerWin)
+        button.text = ""
+        resetPlayer.text = "Player One's Turn"
     }
 }
