@@ -1,5 +1,6 @@
 package com.example.tictactoe
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,7 +8,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private var player="playerOne"
+    private var player="playerX"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val buttonOne = findViewById<Button>(R.id.button10)
         buttonOne.setOnClickListener {
             ticTacToeClick(buttonOne)
+
         }
 
         val buttonTwo = findViewById<Button>(R.id.button11)
@@ -69,37 +71,96 @@ class MainActivity : AppCompatActivity() {
             newGame(buttonSix)
             newGame(buttonSeven)
             newGame(buttonEight)
-            player="playerOne"
+            player="playerX"
         }
     }
-    private fun ticTacToeClick(button:Button){
+    fun ticTacToeClick(button:Button){
         if (button.text=="") {
-            if (player=="playerOne") {
+            if (player=="playerX") {
                 button.text = "X"
-                player="playerTwo"
+                player="playerO"
                 playerTurn()
+                whoWins()
             }
             else {
                 button.text = "O"
-                player="playerOne"
+                player="playerX"
                 playerTurn()
+                whoWins()
             }
         }
     }
 
-    private fun playerTurn(){
+    fun playerTurn() {
         val whichPlayer = findViewById<TextView>(R.id.playerWin)
-        if (player == "playerOne") {
-            whichPlayer.text = "Player One's Turn"
+
+        if (player == "playerO") {
+            whichPlayer.text = "Player O's Turn"
         }
-        if (player == "playerTwo"){
-            whichPlayer.text = "Player Two's Turn"
+
+        if (player == "playerX"){
+            whichPlayer.text = "Player X's Turn"
         }
+
+
     }
 
-    private fun newGame(button:Button){
+    fun newGame(button:Button){
         val resetPlayer = findViewById<TextView>(R.id.playerWin)
         button.text = ""
-        resetPlayer.text = "Player One's Turn"
+        resetPlayer.text = "Player X's Turn"
+    }
+
+    fun whoWins() {
+        val button = findViewById<Button>(R.id.button)
+        val buttonOne = findViewById<Button>(R.id.button10)
+        val buttonTwo = findViewById<Button>(R.id.button11)
+        val buttonThree = findViewById<Button>(R.id.button12)
+        val buttonFour = findViewById<Button>(R.id.button13)
+        val buttonFive = findViewById<Button>(R.id.button14)
+        val buttonSix = findViewById<Button>(R.id.button15)
+        val buttonSeven = findViewById<Button>(R.id.button16)
+        val buttonEight = findViewById<Button>(R.id.button17)
+        val whichPlayer = findViewById<TextView>(R.id.playerWin)
+
+        if ((button.text == "X" && buttonOne.text == "X" && buttonTwo.text == "X")
+            || (buttonThree.text == "X" && buttonFour.text == "X" && buttonFive.text == "X")
+            || (buttonSix.text == "X" && buttonSeven.text == "X" && buttonEight.text == "X")) {
+            whichPlayer.text = "Player X Wins"
+        }
+
+        if ((button.text == "O" && buttonOne.text == "O" && buttonTwo.text == "O")
+            || (buttonThree.text == "O" && buttonFour.text == "O" && buttonFive.text == "O")
+            || (buttonSix.text == "O" && buttonSeven.text == "O" && buttonEight.text == "O")) {
+            whichPlayer.text = "Player O Wins"
+        }
+
+        if ((buttonFive.text == "X" && buttonSix.text == "X" && buttonTwo.text == "X")
+            || (button.text == "X" && buttonThree.text == "X" && buttonEight.text == "X")
+            || (buttonOne.text == "X" && buttonFour.text == "X" && buttonSeven.text == "X")) {
+            whichPlayer.text = "Player X Wins"
+        }
+
+        if ((buttonFive.text == "O" && buttonSix.text == "O" && buttonTwo.text == "O")
+            || (button.text == "O" && buttonThree.text == "O" && buttonEight.text == "O")
+            || (buttonOne.text == "O" && buttonFour.text == "O" && buttonSeven.text == "O")) {
+            whichPlayer.text = "Player O Wins"
+        }
+
+        if ((buttonTwo.text == "O" && buttonFour.text == "O" && buttonEight.text == "O")
+            || (button.text == "O" && buttonFour.text == "O" && buttonFive.text == "O")) {
+            whichPlayer.text = "Player O Wins"
+        }
+
+        if ((buttonTwo.text == "X" && buttonFour.text == "X" && buttonEight.text == "X")
+            || (button.text == "X" && buttonFour.text == "X" && buttonFive.text == "X")) {
+            whichPlayer.text = "Player X Wins"
+        }
+
+        if (button.text.isNotEmpty() && buttonOne.text.isNotEmpty() && buttonTwo.text.isNotEmpty() &&
+            buttonThree.text.isNotEmpty() && buttonFour.text.isNotEmpty() && buttonFive.text.isNotEmpty() &&
+            buttonSix.text.isNotEmpty() && buttonSeven.text.isNotEmpty() && buttonEight.text.isNotEmpty()) {
+            whichPlayer.text = "Tie between both players"
+        }
     }
 }
