@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         val buttonOne = findViewById<Button>(R.id.button10)
         buttonOne.setOnClickListener {
             ticTacToeClick(buttonOne)
-
         }
 
         val buttonTwo = findViewById<Button>(R.id.button11)
@@ -109,6 +108,7 @@ class MainActivity : AppCompatActivity() {
         val resetPlayer = findViewById<TextView>(R.id.playerWin)
         button.text = ""
         resetPlayer.text = "Player X's Turn"
+        enableButtons()
     }
 
     fun whoWins() {
@@ -209,5 +209,44 @@ class MainActivity : AppCompatActivity() {
 
         buttonEight.isEnabled = false
         buttonEight.isClickable = false
+    }
+
+    fun enableButtons(){
+        val button = findViewById<Button>(R.id.button)
+        val buttonOne = findViewById<Button>(R.id.button10)
+        val buttonTwo = findViewById<Button>(R.id.button11)
+        val buttonThree = findViewById<Button>(R.id.button12)
+        val buttonFour = findViewById<Button>(R.id.button13)
+        val buttonFive = findViewById<Button>(R.id.button14)
+        val buttonSix = findViewById<Button>(R.id.button15)
+        val buttonSeven = findViewById<Button>(R.id.button16)
+        val buttonEight = findViewById<Button>(R.id.button17)
+
+        button.isEnabled = true
+        button.isClickable = true
+
+        buttonOne.isEnabled = true
+        buttonOne.isClickable = true
+
+        buttonTwo.isEnabled = true
+        buttonTwo.isClickable = true
+
+        buttonThree.isEnabled = true
+        buttonThree.isClickable = true
+
+        buttonFour.isEnabled = true
+        buttonFour.isClickable = true
+
+        buttonFive.isEnabled = true
+        buttonFive.isClickable = true
+
+        buttonSix.isEnabled = true
+        buttonSix.isClickable = true
+
+        buttonSeven.isEnabled = true
+        buttonSeven.isClickable = true
+
+        buttonEight.isEnabled = true
+        buttonEight.isClickable = true
     }
 }
