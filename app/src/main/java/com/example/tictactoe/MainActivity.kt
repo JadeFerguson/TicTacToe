@@ -9,6 +9,16 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private var player="playerX"
+    val button = findViewById<Button>(R.id.button)
+    val buttonOne = findViewById<Button>(R.id.button10)
+    val buttonTwo = findViewById<Button>(R.id.button11)
+    val buttonThree = findViewById<Button>(R.id.button12)
+    val buttonFour = findViewById<Button>(R.id.button13)
+    val buttonFive = findViewById<Button>(R.id.button14)
+    val buttonSix = findViewById<Button>(R.id.button15)
+    val buttonSeven = findViewById<Button>(R.id.button16)
+    val buttonEight = findViewById<Button>(R.id.button17)
+    val whichPlayer = findViewById<TextView>(R.id.playerWin)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,40 +137,87 @@ class MainActivity : AppCompatActivity() {
             || (buttonThree.text == "X" && buttonFour.text == "X" && buttonFive.text == "X")
             || (buttonSix.text == "X" && buttonSeven.text == "X" && buttonEight.text == "X")) {
             whichPlayer.text = "Player X Wins"
+            disableButtons()
         }
 
         if ((button.text == "O" && buttonOne.text == "O" && buttonTwo.text == "O")
             || (buttonThree.text == "O" && buttonFour.text == "O" && buttonFive.text == "O")
             || (buttonSix.text == "O" && buttonSeven.text == "O" && buttonEight.text == "O")) {
             whichPlayer.text = "Player O Wins"
+            disableButtons()
         }
 
         if ((buttonFive.text == "X" && buttonSix.text == "X" && buttonTwo.text == "X")
             || (button.text == "X" && buttonThree.text == "X" && buttonEight.text == "X")
             || (buttonOne.text == "X" && buttonFour.text == "X" && buttonSeven.text == "X")) {
             whichPlayer.text = "Player X Wins"
+            disableButtons()
         }
 
         if ((buttonFive.text == "O" && buttonSix.text == "O" && buttonTwo.text == "O")
             || (button.text == "O" && buttonThree.text == "O" && buttonEight.text == "O")
             || (buttonOne.text == "O" && buttonFour.text == "O" && buttonSeven.text == "O")) {
             whichPlayer.text = "Player O Wins"
+            disableButtons()
         }
 
         if ((buttonTwo.text == "O" && buttonFour.text == "O" && buttonEight.text == "O")
             || (button.text == "O" && buttonFour.text == "O" && buttonFive.text == "O")) {
             whichPlayer.text = "Player O Wins"
+            disableButtons()
         }
 
         if ((buttonTwo.text == "X" && buttonFour.text == "X" && buttonEight.text == "X")
             || (button.text == "X" && buttonFour.text == "X" && buttonFive.text == "X")) {
             whichPlayer.text = "Player X Wins"
+            disableButtons()
         }
 
         if (button.text.isNotEmpty() && buttonOne.text.isNotEmpty() && buttonTwo.text.isNotEmpty() &&
             buttonThree.text.isNotEmpty() && buttonFour.text.isNotEmpty() && buttonFive.text.isNotEmpty() &&
             buttonSix.text.isNotEmpty() && buttonSeven.text.isNotEmpty() && buttonEight.text.isNotEmpty()) {
             whichPlayer.text = "Tie between both players"
+            disableButtons()
         }
+    }
+
+    fun disableButtons(){
+        val button = findViewById<Button>(R.id.button)
+        val buttonOne = findViewById<Button>(R.id.button10)
+        val buttonTwo = findViewById<Button>(R.id.button11)
+        val buttonThree = findViewById<Button>(R.id.button12)
+        val buttonFour = findViewById<Button>(R.id.button13)
+        val buttonFive = findViewById<Button>(R.id.button14)
+        val buttonSix = findViewById<Button>(R.id.button15)
+        val buttonSeven = findViewById<Button>(R.id.button16)
+        val buttonEight = findViewById<Button>(R.id.button17)
+        val whichPlayer = findViewById<TextView>(R.id.playerWin)
+
+        button.isEnabled = false;
+        button.isClickable = false;
+
+        buttonOne.isEnabled = false;
+        buttonOne.isClickable = false;
+
+        buttonTwo.isEnabled = false;
+        buttonTwo.isClickable = false;
+
+        buttonThree.isEnabled = false;
+        buttonThree.isClickable = false;
+
+        buttonFour.isEnabled = false;
+        buttonFour.isClickable = false;
+
+        buttonFive.isEnabled = false;
+        buttonFive.isClickable = false;
+
+        buttonSix.isEnabled = false;
+        buttonSix.isClickable = false;
+
+        buttonSeven.isEnabled = false;
+        buttonSeven.isClickable = false;
+
+        buttonEight.isEnabled = false;
+        buttonEight.isClickable = false;
     }
 }
