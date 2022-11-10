@@ -9,16 +9,6 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private var player="playerX"
-    val button = findViewById<Button>(R.id.button)
-    val buttonOne = findViewById<Button>(R.id.button10)
-    val buttonTwo = findViewById<Button>(R.id.button11)
-    val buttonThree = findViewById<Button>(R.id.button12)
-    val buttonFour = findViewById<Button>(R.id.button13)
-    val buttonFive = findViewById<Button>(R.id.button14)
-    val buttonSix = findViewById<Button>(R.id.button15)
-    val buttonSeven = findViewById<Button>(R.id.button16)
-    val buttonEight = findViewById<Button>(R.id.button17)
-    val whichPlayer = findViewById<TextView>(R.id.playerWin)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -181,6 +171,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Disables buttons after win
     fun disableButtons(){
         val button = findViewById<Button>(R.id.button)
         val buttonOne = findViewById<Button>(R.id.button10)
@@ -191,33 +182,32 @@ class MainActivity : AppCompatActivity() {
         val buttonSix = findViewById<Button>(R.id.button15)
         val buttonSeven = findViewById<Button>(R.id.button16)
         val buttonEight = findViewById<Button>(R.id.button17)
-        val whichPlayer = findViewById<TextView>(R.id.playerWin)
 
-        button.isEnabled = false;
-        button.isClickable = false;
+        button.isEnabled = false
+        button.isClickable = false
 
-        buttonOne.isEnabled = false;
-        buttonOne.isClickable = false;
+        buttonOne.isEnabled = false
+        buttonOne.isClickable = false
 
-        buttonTwo.isEnabled = false;
-        buttonTwo.isClickable = false;
+        buttonTwo.isEnabled = false
+        buttonTwo.isClickable = false
 
-        buttonThree.isEnabled = false;
-        buttonThree.isClickable = false;
+        buttonThree.isEnabled = false
+        buttonThree.isClickable = false
 
-        buttonFour.isEnabled = false;
-        buttonFour.isClickable = false;
+        buttonFour.isEnabled = false
+        buttonFour.isClickable = false
 
-        buttonFive.isEnabled = false;
-        buttonFive.isClickable = false;
+        buttonFive.isEnabled = false
+        buttonFive.isClickable = false
 
-        buttonSix.isEnabled = false;
-        buttonSix.isClickable = false;
+        buttonSix.isEnabled = false
+        buttonSix.isClickable = false
 
-        buttonSeven.isEnabled = false;
-        buttonSeven.isClickable = false;
+        buttonSeven.isEnabled = false
+        buttonSeven.isClickable = false
 
-        buttonEight.isEnabled = false;
-        buttonEight.isClickable = false;
+        buttonEight.isEnabled = false
+        buttonEight.isClickable = false
     }
 }
